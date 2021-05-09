@@ -11,3 +11,4 @@ RUN mkdir /app
 WORKDIR /app
 COPY --from=build /out /app
 EXPOSE 8080
+CMD ["./geo-api", "start"]
