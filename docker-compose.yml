@@ -7,11 +7,16 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - MONGODB_URL=mongodb://mymongodb:27017
+      - GEO_API_MONGODB_URL=mongodb://mymongodb:27017
+      - GEO_API_MONGODB_USERNAME=mongo
+      - GEO_API_MONGODB_PASSWORD=123456
   mymongodb:
     image: mongo
     container_name: mymongodb
     restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongo
+      - MONGO_INITDB_ROOT_USERNAME=123456
 networks:
   default:
     name: findhotel
