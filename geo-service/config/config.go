@@ -1,6 +1,5 @@
 package config
 
-import "C"
 import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"

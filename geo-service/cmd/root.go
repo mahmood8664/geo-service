@@ -1,6 +1,5 @@
 package cmd
 
-import "C"
 import (
 	"findhotel.com/geo-service/config"
 	"github.com/rs/zerolog/log"
