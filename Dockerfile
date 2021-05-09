@@ -5,7 +5,7 @@ WORKDIR /app/geo-api
 RUN go build && \
     mkdir /out && \
     cp ./geo-api /out/ && \
-    cp -r /app/resources/ /out/
+    cp -r ./resources/ /out/
 FROM alpine:3.12
 RUN mkdir /app
 WORKDIR /app
