@@ -1,8 +1,7 @@
 FROM golang:1.15.2-alpine3.12 AS build
 RUN mkdir app
 COPY . /app
-COPY ../findhotel-geo-service /geo-service
-WORKDIR /app
+WORKDIR /app/geo-api
 RUN go build && \
     mkdir /out && \
     cp ./geo-api /out/ && \
