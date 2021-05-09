@@ -1,0 +1,11 @@
+http_port: 8080
+logging:
+  level: debug
+  path: /tmp/data
+  file_name: battleship.log
+cors:
+  domain: "*"
+mongodb:
+  url: mongodb://localhost:27017
+  username: mongo
+  password: 123456

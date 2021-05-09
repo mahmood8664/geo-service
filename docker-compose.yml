@@ -1,0 +1,17 @@
+version: '3'
+services:
+  geo-api:
+    build: .
+    container_name: geo-api
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - MONGODB_URL=mongodb://mymongodb:27017
+  mymongodb:
+    image: mongo
+    container_name: mymongodb
+    restart: always
+networks:
+  default:
+    name: findhotel

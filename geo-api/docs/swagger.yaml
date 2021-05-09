@@ -1,0 +1,73 @@
+definitions:
+  api.AppError:
+    properties:
+      error_data:
+        additionalProperties:
+          type: string
+        example:
+          errorParam: value
+        type: object
+      error_message:
+        type: string
+    type: object
+  api.GeoLocationResponse:
+    properties:
+      city:
+        type: string
+      country:
+        type: string
+      country_code:
+        type: string
+      ip:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      mystery_value:
+        type: string
+    type: object
+info:
+  contact:
+    email: m.allamehamiri@gmail.com
+    name: Mahmoud AllamehAmiri
+  description: GeoLocation API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: GeoLocation API
+  version: "1.0"
+paths:
+  /api/v1/geo-location/{ip}:
+    get:
+      description: This service will try to find geolocation of the given IP address
+      parameters:
+      - description: ' '
+        in: path
+        name: ip
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: GeoLocationResponse
+          schema:
+            $ref: '#/definitions/api.GeoLocationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.AppError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/api.AppError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.AppError'
+      summary: Get Geolocation Data
+      tags:
+      - Geo
+swagger: "2.0"
