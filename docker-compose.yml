@@ -1,7 +1,8 @@
+#Dockercompose file for deploying geo-api
 version: '3'
 services:
   geo-api:
-    build: .
+    build: ""
     container_name: geo-api
     restart: always
     ports:
