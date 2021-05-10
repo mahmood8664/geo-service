@@ -1,3 +1,4 @@
+#Dockerfile for building geo-api
 FROM golang:1.15.2-alpine3.12 AS build
 RUN mkdir app
 COPY . /app
