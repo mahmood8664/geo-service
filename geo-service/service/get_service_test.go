@@ -55,7 +55,7 @@ func TestGeoServiceImpl_GetOne(t *testing.T) {
 	geoDaoMock := GeoLocationDaoMock{}
 
 	geoDaoMock.On("GetOne", "192.168.1.1").
-		Return(model.GeoLocation{Id: "1", IP: "192.168.1.1", CountryCode: "IR", Country: "Iran", Longitude: 20, City: "Teh", Latitude: 10, MysteryValue: "123"}, nil)
+		Return(model.GeoLocation{Id: nil, IP: "192.168.1.1", CountryCode: "IR", Country: "Iran", Longitude: 20, City: "Teh", Latitude: 10, MysteryValue: "123"}, nil)
 	geoDaoMock.On("GetOne", "192.168.1.2").Return(model.GeoLocation{}, errors.New("mongo: no documents in result"))
 
 	///
@@ -77,7 +77,7 @@ func TestGeoServiceImpl_GetOne(t *testing.T) {
 	one, _ := geoService.GetGeoLocation("192.168.1.1")
 	_, err2 := geoService.GetGeoLocation("192.168.1.2")
 
-	assert.Equal(t, one, model.GeoLocation{Id: "1", IP: "192.168.1.1", CountryCode: "IR", Country: "Iran", Longitude: 20, City: "Teh", Latitude: 10, MysteryValue: "123"})
+	assert.Equal(t, one, model.GeoLocation{Id: nil, IP: "192.168.1.1", CountryCode: "IR", Country: "Iran", Longitude: 20, City: "Teh", Latitude: 10, MysteryValue: "123"})
 	assert.Error(t, err2)
 	assert.Equal(t, err2.Error(), "data not found")
 	geoDaoMock.MethodCalled("GetOne", "192.168.1.1")

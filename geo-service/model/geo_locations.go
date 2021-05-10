@@ -2,6 +2,7 @@ package model
 
 import (
 	"errors"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"net"
 	"regexp"
 	"strconv"
@@ -10,14 +11,14 @@ import (
 
 //GeoLocation is a model to keep geolocation data
 type GeoLocation struct {
-	Id           string  `bson:"_id" json:""`
-	IP           string  `bson:"ip" json:"ip"`
-	CountryCode  string  `bson:"country_code" json:"country_code"`
-	Country      string  `bson:"country" json:"country"`
-	City         string  `bson:"city" json:"city"`
-	Latitude     float64 `bson:"latitude" json:"latitude"`
-	Longitude    float64 `bson:"longitude" json:"longitude"`
-	MysteryValue string  `bson:"mystery_value" json:"mystery_value"`
+	Id           *primitive.ObjectID `bson:"_id,omitempty" json:""`
+	IP           string              `bson:"ip" json:"ip"`
+	CountryCode  string              `bson:"country_code" json:"country_code"`
+	Country      string              `bson:"country" json:"country"`
+	City         string              `bson:"city" json:"city"`
+	Latitude     float64             `bson:"latitude" json:"latitude"`
+	Longitude    float64             `bson:"longitude" json:"longitude"`
+	MysteryValue string              `bson:"mystery_value" json:"mystery_value"`
 }
 
 var (

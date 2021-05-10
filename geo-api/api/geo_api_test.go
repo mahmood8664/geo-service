@@ -38,7 +38,7 @@ func TestGeoLocationApi_GetGeoLocationInfo_OK(t *testing.T) {
 		Latitude:     20,
 		City:         "CITY",
 		MysteryValue: "M",
-		Id:           "123",
+		Id:           nil,
 	}
 	geoServiceMock.On("GetGeoLocation", "192.168.1.1").Return(location1, nil)
 
