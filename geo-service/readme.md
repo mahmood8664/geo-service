@@ -1,12 +1,9 @@
 # GeoLocation Importer and Service Provider Library
-
-This module is a library designed for two purposes:
-
+This module is developed for two purposes:
 1. Provide command line service to import CSV file into database.
 2. Provide Model and Service to access geolocation data
 
 ## Go Version
-
 The minimum version is 1.15.2
 
 ## 1. Use as CSV Importer
@@ -42,7 +39,7 @@ For more information about importing command use the following command:
 ./geo-service import -h
 ```
 
-The available Flags for importer are:
+The available flags for importer are:
 
 ```bash
 Flags:
@@ -56,7 +53,7 @@ Flags:
 This is an example of Importing command:
 
 ```bash
-./geo-service import -f csv-file.csv -d mongodb://localhost:27017 -u user -p pass
+./geo-service import -f csv-file.csv -d mongodb://localhost:27017 -u user -p 123
 ```
 ##Cron Job Script
 To run this command as cron job in your server, there is a script file with
@@ -66,7 +63,7 @@ make it executable by this command:
 ```bash
 chmod +x script.sh
 ```
-Then open crontab file by this command:
+Then you can edit crontab by this command:
 ```bash
 crontab -e
 ```

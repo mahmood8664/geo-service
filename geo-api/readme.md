@@ -13,12 +13,14 @@ You can find this module at [geo-service
 ](https://github.com/mahmood8664/findhotel-geo/tree/master/geo-service). 
 2. **MongoDb** 
 ## build docker image
-to build application docker image execute the following command:
+to build application by docker execute the following command:
 ```bash
 docker build -t <Image-Name>
 ```
+**Important: In building process geo-service directory must be located 
+beside geo-api directory.** 
 ## Deployment
-To deploy application in your server run the below command.  
+To deploy application in your server run the below command.   
 ```bash
 docker-compose up -d
 ```

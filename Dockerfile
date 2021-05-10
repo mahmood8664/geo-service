@@ -1,4 +1,5 @@
-#Dockerfile for building geo-api
+#this is Dockerfile for building geo-api
+#Have to be executed at parent directory and both geo-api and geo-service module must be present
 FROM golang:1.15.2-alpine3.12 AS build
 RUN mkdir app
 COPY . /app
