@@ -81,7 +81,7 @@ func logConfigure() {
 		zerolog.SetGlobalLevel(level)
 	}
 	zerolog.TimeFieldFormat = time.RFC3339Nano
-	log.Logger = log.With().Caller().Logger()
-	//log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stdout})//Pretty output
-	log.Logger = log.Output(os.Stdout).With().Logger() //Json output
+	//log.Logger = log.With().Caller().Logger()
+	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stdout}) //Pretty output
+	//log.Logger = log.Output(os.Stdout).With().Logger() //Json output
 }
