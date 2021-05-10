@@ -4,7 +4,7 @@ This module is developed for two purposes:
 2. Provide Model and Service to access geolocation data
 
 ## Go Version
-The minimum version is 1.15.2
+The minimum version required is 1.15.2
 
 ## 1. Use as CSV Importer
 
@@ -55,11 +55,12 @@ This is an example of Importing command:
 ```bash
 ./geo-service import -f csv-file.csv -d mongodb://localhost:27017 -u user -p 123
 ```
-##Cron Job Script
+## Schedule Importing Service
 To run this command as cron job in your server, there is a script file with
-the name **script.sh**. It downloads file from a URL and try to import it
-into database. First be sure the file has permission to execute. If not just
-make it executable by this command:
+the name **script.sh**. It downloads file from a URL and will try to import it
+into database. Change parameters like csv file url, database username and 
+password base on you environment. Be sure the file has permission to execute. 
+If not just make it executable by this command:
 ```bash
 chmod +x script.sh
 ```

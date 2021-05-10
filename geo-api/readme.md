@@ -4,7 +4,7 @@ given IP address. Swagger is available at
 http://148.251.100.210:8080/swagger/index.html. 
 
 ## Go Version
-The minimum version is 1.15.2
+The minimum version required is 1.15.2
 
 # Building And Deployment
 ## dependencies
@@ -20,12 +20,16 @@ docker build -t <Image-Name>
 **Important: In building process geo-service directory must be located 
 beside geo-api directory.** 
 ## Deployment
-To deploy application in your server run the below command.   
+If you want to deploy both application and mongodb use below command: 
 ```bash
 docker-compose up --build -d
 ```
-The aforementioned command will deploy both the application and mongodb 
-database which is required for this application. 
-Application exposes port 8080 and swagger would be available at 
+If you want just deploy application, after building and creating docker image you can use 
+the following docker command:
+
+```bash
+docker run --name container-name --network network-name -p 8080:8080 -d geo-api:latest
+```
+After deployment successfully, the swagger would be available at 
 http://base-url/swagget/index.html
 
