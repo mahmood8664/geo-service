@@ -22,7 +22,7 @@ beside geo-api directory.**
 ## Deployment
 To deploy application in your server run the below command.   
 ```bash
-docker-compose up -d
+docker-compose up --build -d
 ```
 The aforementioned command will deploy both the application and mongodb 
 database which is required for this application. 
