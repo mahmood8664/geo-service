@@ -97,8 +97,8 @@ func (r *DispatcherImpl) Print() {
 	}
 	log.Info().Msg("*********************** Final Results **************************")
 	log.Info().Msgf("Total time elapsed: %d seconds", r.end-r.start)
-	log.Info().Msgf("Total number of successful records: %d", total-failed)
-	log.Info().Msgf("Total number of failed records: %d", failed-1) //the first record is always headers and is not failed
+	log.Info().Msgf("Total number of successful inserts: %d", total-failed)
+	log.Info().Msgf("Total number of discarded records: %d", failed-1) //the first record is always headers and is not failed
 	log.Info().Msg("**************************************************************")
 }
 
