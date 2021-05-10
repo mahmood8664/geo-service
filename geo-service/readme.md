@@ -90,8 +90,8 @@ This is an example of using GeoService:
 
 	location, err := geoService.GetGeoLocation("192.168.1.1")
 ```
-NewGeoService method create GeoService instance. It takes Config as an argument
-which is database access configs. 
-<br/>You can find geolocation data of the given IP address by calling 
-GetGeoLocation method of GeoService. It will return error if connecting to 
-database would not successful. 
+<code>NewGeoService</code> method create <code>GeoService</code> instance.
+It takes <code>Config</code> as an argument which is database access configs. 
+<br/>You can find geolocation data of the given IP address by calling
+<code>GetGeoLocation</code> method of <code>GeoService</code>. 
+It will return error if connecting to database would not successful. 
