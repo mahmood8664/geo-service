@@ -54,6 +54,8 @@ func TestImporterImpl_Import(t *testing.T) {
 	//////Create and config GeoLocationDaoMock
 	geoDaoMock := GeoLocationDaoMock{}
 
+	geoDaoMock.On("CreateIndex").Return(nil)
+
 	geoDaoMock.On("InsertMany", []model.GeoLocation{{
 		IP: "192.168.1.3", CountryCode: "AR", Country: "Iran", City: "Tehran", Latitude: 12, Longitude: 20.236, MysteryValue: "AAAA",
 	}}).Return([]interface{}{primitive.NewObjectID()}, nil)

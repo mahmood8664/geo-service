@@ -36,13 +36,13 @@ func NewGeoLocationDaoImpl(wrapper ClientWrapper) GeoLocationDaoImpl {
 }
 
 func (r GeoLocationDaoImpl) GetOne(ip string) (geoLocation model.GeoLocation, err error) {
-	result := r.GeoLocationConnection().FindOne(context.TODO(), bson.D{{"ip", ip}})
+	result := r.geoLocationConnection().FindOne(context.TODO(), bson.D{{"ip", ip}})
 	err = result.Decode(&geoLocation)
 	return geoLocation, err
 }
 
 func (r GeoLocationDaoImpl) Insert(geoLocation model.GeoLocation) (id string, err error) {
-	one, err := r.GeoLocationConnection().InsertOne(context.TODO(), geoLocation)
+	one, err := r.geoLocationConnection().InsertOne(context.TODO(), geoLocation)
 	if err != nil {
 		return "", err
 	}
@@ -55,7 +55,7 @@ func (r GeoLocationDaoImpl) InsertMany(geoLocation []model.GeoLocation) (ids []i
 		geos[i] = g
 	}
 	ordered := false
-	many, err := r.GeoLocationConnection().InsertMany(context.TODO(), geos, &options.InsertManyOptions{Ordered: &ordered})
+	many, err := r.geoLocationConnection().InsertMany(context.TODO(), geos, &options.InsertManyOptions{Ordered: &ordered})
 	if err != nil {
 		if many != nil {
 			return many.InsertedIDs, err
@@ -67,7 +67,7 @@ func (r GeoLocationDaoImpl) InsertMany(geoLocation []model.GeoLocation) (ids []i
 }
 
 func (r GeoLocationDaoImpl) CreateIndex() (err error) {
-	_, err = r.GeoLocationConnection().Indexes().CreateOne(context.Background(),
+	_, err = r.geoLocationConnection().Indexes().CreateOne(context.Background(),
 		mongo.IndexModel{
 			Keys:    bsonx.Doc{{"ip", bsonx.Int32(1)}},
 			Options: options.Index().SetUnique(true),
@@ -75,7 +75,7 @@ func (r GeoLocationDaoImpl) CreateIndex() (err error) {
 	return err
 }
 
-func (r GeoLocationDaoImpl) GeoLocationConnection() *mongo.Collection {
+func (r GeoLocationDaoImpl) geoLocationConnection() *mongo.Collection {
 	if r.geoCollection == nil {
 		r.geoCollection = r.clientWrapper.Client().Database(GeoDB).Collection(GeoCollection)
 	}

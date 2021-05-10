@@ -28,6 +28,11 @@ func (r *GeoLocationDaoMock) InsertMany(geoLocation []model.GeoLocation) (ids []
 	return args.Get(0).([]interface{}), args.Error(1)
 }
 
+func (r *GeoLocationDaoMock) CreateIndex() error {
+	r.Called()
+	return nil
+}
+
 ////
 
 type ClientWrapperMock struct {
@@ -53,6 +58,8 @@ func (r *ClientWrapperMock) Close() {
 func TestGeoServiceImpl_GetOne(t *testing.T) {
 
 	geoDaoMock := GeoLocationDaoMock{}
+
+	geoDaoMock.On("CreateIndex").Return(nil)
 
 	geoDaoMock.On("GetOne", "192.168.1.1").
 		Return(model.GeoLocation{Id: nil, IP: "192.168.1.1", CountryCode: "IR", Country: "Iran", Longitude: 20, City: "Teh", Latitude: 10, MysteryValue: "123"}, nil)

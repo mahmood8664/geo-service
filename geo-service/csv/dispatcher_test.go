@@ -28,6 +28,11 @@ func (r *GeoLocationDaoMock) InsertMany(geoLocation []model.GeoLocation) (ids []
 	return args.Get(0).([]interface{}), args.Error(1)
 }
 
+func (r *GeoLocationDaoMock) CreateIndex() error {
+	r.Called()
+	return nil
+}
+
 func TestDispatcherImpl_Dispatch(t *testing.T) {
 
 	config.C = config.Config{
@@ -36,6 +41,8 @@ func TestDispatcherImpl_Dispatch(t *testing.T) {
 	}
 
 	geoDaoMock := GeoLocationDaoMock{}
+
+	geoDaoMock.On("CreateIndex").Return(nil)
 
 	geoDaoMock.On("InsertMany", []model.GeoLocation{{
 		IP: "192.168.10.3", CountryCode: "AR", Country: "Iran", City: "Tehran", Latitude: 12, Longitude: 20.236, MysteryValue: "AAAA",
