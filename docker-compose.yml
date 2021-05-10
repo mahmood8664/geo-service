@@ -16,7 +16,7 @@ services:
     restart: always
     environment:
       - MONGO_INITDB_ROOT_USERNAME=mongo
-      - MONGO_INITDB_ROOT_USERNAME=123456
+      - MONGO_INITDB_ROOT_PASSWORD=123456
 networks:
   default:
     name: findhotel
