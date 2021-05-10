@@ -1,5 +1,5 @@
 #!bin/bash
-csv_url="https://address-of-csv-file"
+csv_url="https://url-of-csv-file"
 now=$(date +'%Y-%m-%d__%H-%M-%S')
 file_name="csv-$now.csv"
 echo $file_name
