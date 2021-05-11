@@ -25,7 +25,7 @@ func Init() {
 		MongodbUrl:      "",
 		MongodbUsername: "",
 		MongodbPassword: "",
-		InsertBulkSize:  4000,
+		InsertBulkSize:  5000,
 		NumberOfWorkers: 4,
 	}
 }

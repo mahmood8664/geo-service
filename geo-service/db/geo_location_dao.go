@@ -36,7 +36,7 @@ func NewGeoLocationDaoImpl(wrapper ClientWrapper) GeoLocationDaoImpl {
 }
 
 func (r GeoLocationDaoImpl) GetOne(ip string) (geoLocation model.GeoLocation, err error) {
-	result := r.geoLocationConnection().FindOne(context.TODO(), bson.D{{"ip", ip}})
+	result := r.geoLocationConnection().FindOne(context.TODO(), bson.D{{Key: "ip", Value: ip}})
 	err = result.Decode(&geoLocation)
 	return geoLocation, err
 }
@@ -69,7 +69,7 @@ func (r GeoLocationDaoImpl) InsertMany(geoLocation []model.GeoLocation) (ids []i
 func (r GeoLocationDaoImpl) CreateIndex() (err error) {
 	_, err = r.geoLocationConnection().Indexes().CreateOne(context.Background(),
 		mongo.IndexModel{
-			Keys:    bsonx.Doc{{"ip", bsonx.Int32(1)}},
+			Keys:    bsonx.Doc{{Key: "ip", Value: bsonx.Int32(1)}},
 			Options: options.Index().SetUnique(true),
 		})
 	return err

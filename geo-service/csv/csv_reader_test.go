@@ -75,7 +75,7 @@ func TestImporterImpl_Import(t *testing.T) {
 	dispatcher := NewDispatcherImpl(&geoDaoMock)
 	importer := NewImporterImpl(&clientMock, dispatcher)
 
-	err = importer.Import()
+	_ = importer.Import()
 	//
 	clientMock.AssertCalled(t, "Connect")
 	clientMock.AssertCalled(t, "Close")

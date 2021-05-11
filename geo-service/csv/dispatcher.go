@@ -11,13 +11,15 @@ import (
 	"time"
 )
 
+//Dispatcher is responsible to create some workers and dispatch csv record among workers.
 type Dispatcher interface {
 	//Dispatch dispatch tasks to worker(s). csvRecordCh param is a channel to receive records to persist in DB
-	// and finishCh channel is a channel to tell dispatcher that there is no more records
+	// and finishCh channel is a channel to tell dispatcher that records are finished.
 	Dispatch(csvRecordCh chan []string, finishCh chan bool)
 	//Print prints some statistic data after finishing jobs, call it after Wait method
 	Print()
-	//Wait is a method to waiting until dispatcher finish it's work
+	//Wait is a method to waiting until dispatcher finish it's work. so if you want to wait until finishing all jobs
+	// just call this method
 	Wait()
 }
 

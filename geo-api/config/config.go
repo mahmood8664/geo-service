@@ -40,7 +40,7 @@ type Mongodb struct {
 
 func Init(filename string) {
 	loadConfigs(filename)
-	//logConfigure()
+	logConfigure()
 }
 
 //loadConfigs load configuration from config file and environment variables

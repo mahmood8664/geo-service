@@ -82,13 +82,13 @@ func LogMiddleware() echo.MiddlewareFunc {
 }
 
 //BodyDumper used for printing request and response body in log
-func BodyDumper(c echo.Context, reqBody, resBody []byte) {
-	if strings.HasPrefix(c.Request().RequestURI, "/api/v") {
-		log.Debug().
-			Str("uri", c.Request().RequestURI).
-			Str("request_body", string(reqBody)).
-			Str("response_body", string(resBody)).
-			Msg("Http Request")
-	}
-	return
-}
+//func BodyDumper(c echo.Context, reqBody, resBody []byte) {
+//	if strings.HasPrefix(c.Request().RequestURI, "/api/v") {
+//		log.Debug().
+//			Str("uri", c.Request().RequestURI).
+//			Str("request_body", string(reqBody)).
+//			Str("response_body", string(resBody)).
+//			Msg("Http Request")
+//	}
+//	return
+//}
