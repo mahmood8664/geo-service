@@ -81,7 +81,7 @@ func BadRequest(msg string) error {
 }
 
 //CustomHTTPErrorHandler handles error based on the type of error. If it is type of AppError, it converts it into json
-//but for other kind of error, first will convert it to AppError
+//but for other kind of error, first it converts it to AppError
 func CustomHTTPErrorHandler(err error, c echo.Context) {
 	if !c.Response().Committed {
 		if e, ok := err.(*AppError); ok {

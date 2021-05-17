@@ -20,7 +20,7 @@ var geoService = geoServiceImpl{connect: false}
 
 type GeoService interface {
 	//GetGeoLocation return model.GeoLocation data of the given IP address, return error if not successful.
-	//Just Start GeoService before using this service. If data not found will return NotFoundError
+	//Just Start GeoService before using this service. If data not found return NotFoundError
 	GetGeoLocation(ip string) (model.GeoLocation, error)
 	//Stop disconnect from database and free resources.
 	Stop()

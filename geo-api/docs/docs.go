@@ -33,7 +33,7 @@ var doc = `{
     "paths": {
         "/api/v1/geo-location/{ip}": {
             "get": {
-                "description": "This service will try to find geolocation of the given IP address",
+                "description": "This API try to find geolocation of the given IP address",
                 "produces": [
                     "application/json"
                 ],

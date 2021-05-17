@@ -19,7 +19,7 @@ var client ClientWrapperImpl
 
 //ClientWrapper is MongoDB Client Wrapper class
 type ClientWrapper interface {
-	//Connect try to connect to database and will panic if it would not successful
+	//Connect try to connect to database and panic if it would not successful
 	Connect() error
 	//Close try to close database connection and free resources
 	Close()

@@ -57,7 +57,7 @@ This is an example of Importing command:
 ```
 ## Schedule Importing Service
 To run this command as cron job in your server, there is a script file with
-the name **script.sh**. It downloads file from a URL and will try to import it
+the name **script.sh**. It downloads file from a URL and tries to import it
 into database. Change parameters like csv file url, database username and 
 password base on you environment. Be sure the file has permission to execute. 
 If not just make it executable by this command:
@@ -94,4 +94,4 @@ This is an example of using GeoService:
 It takes <code>Config</code> as an argument which is database access configs. 
 <br/>You can find geolocation data of the given IP address by calling
 <code>GetGeoLocation</code> method of <code>GeoService</code>. 
-It will return error if connecting to database would not successful. 
+It returns error if connecting to database would not successful. 
